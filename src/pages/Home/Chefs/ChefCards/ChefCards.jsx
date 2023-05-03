@@ -13,7 +13,7 @@ const ChefCards = () => {
     })
     return (
         <div className='text-center'>
-            <h2 className='mb-5'>Meet Our Chefs</h2>
+            <h2 className='my-5'>Meet Our Chefs</h2>
             <Row className='mx-3'>
 
                 {

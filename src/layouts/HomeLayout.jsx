@@ -8,7 +8,7 @@ const HomeLayout = () => {
         <div>
         
             <div className='mx-auto'>
-                <HomeBanner></HomeBanner>
+                <HomeBanner className='mb-8'></HomeBanner>
                 <ChefCards></ChefCards>
 
             </div>
