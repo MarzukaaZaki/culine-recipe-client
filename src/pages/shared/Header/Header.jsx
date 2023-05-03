@@ -17,10 +17,10 @@ const Header = () => {
                             <Nav.Link className="me-5" href="#features">About</Nav.Link>
                             <Nav.Link className="me-5" href="#pricing">Blog</Nav.Link>
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                <Button variant="dark">Log In</Button>
+                        <Nav className="mx-auto">
+                            <Nav.Link href="#deets" className="me-5">Log In</Nav.Link>
+                            <Nav.Link href="#memes">
+                            Register
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
