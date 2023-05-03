@@ -12,9 +12,9 @@ const ChefCards = () => {
             .catch(error => console.log(error.message))
     })
     return (
-        <div>
-            <h2>Chef cards go here</h2>
-            <Row>
+        <div className='text-center'>
+            <h2 className='mb-5'>Meet Our Chefs</h2>
+            <Row className='mx-3'>
 
                 {
                     chefs.map(chef => <Col sm={4}>
