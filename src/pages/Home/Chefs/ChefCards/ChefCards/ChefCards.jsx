@@ -8,11 +8,14 @@ import { useEffect, useState } from 'react';
 
 const ChefCards = () => {
     const [loading, setLoading] = useState(true);
+    
     const chefs = useLoaderData();
+
+    // Show a spinner for 2s before chef cards are displayed.
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000); // Change the interval as needed
+        }, 2000); 
 
         return () => {
             clearTimeout(timer);

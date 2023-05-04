@@ -2,10 +2,12 @@ import React from 'react';
 import {FaBookOpen,} from 'react-icons/fa'
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import './ChefCard.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
-    const { name, pic_of_chef, years_of_experience, likes, no_of_recipes } = chef;
+    const { id, name, pic_of_chef, years_of_experience, likes, no_of_recipes } = chef;
+    
+    const navigate = useNavigate();
     return (
         <div>
             <div className="card shadow mb-5 text-center">
@@ -21,7 +23,7 @@ const ChefCard = ({ chef }) => {
                         <p><BsFillHandThumbsUpFill className='me-2'></BsFillHandThumbsUpFill>{likes} Likes</p>
 
                     </div>
-                    <Link className='btn btn-dark px-4'>View Recipe</Link>
+                    <button onClick={()=>navigate(`/chef/${id}`)} className='btn btn-dark px-4'>View Recipe</button>
                 </div>
             </div>
 

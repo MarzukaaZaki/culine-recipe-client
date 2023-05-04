@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import HomeBanner from '../pages/Home/HomeBanner/HomeBanner';
-import ChefCards from '../pages/Home/Chefs/ChefCards/ChefCards';
+import ChefCards from '../pages/Home/Chefs/ChefCards/ChefCards/ChefCards';
 import { AuthContext } from '../providers/AuthProvider';
 
 

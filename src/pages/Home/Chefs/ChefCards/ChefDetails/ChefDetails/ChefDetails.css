@@ -1,0 +1,9 @@
+.container {
+    max-width:1424px;
+  }
+  .heroContent {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
