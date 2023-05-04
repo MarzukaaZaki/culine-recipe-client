@@ -1,11 +1,60 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const RegistrationLayout = () => {
-
+    
+    const {createUser} = useContext(AuthContext);
+    const [error, setError] =useState('');
+    const [success, setSuccess] = useState('');
+    
+    // Handle registration event
     const handleRegistration = (event) =>{
         event.preventDefault(); // To prevent page refresh on submit
-        console.log(event);
+        
+        // Set success message to an empty string so as not to have any confusing state.
+        setSuccess('');
+
+        const form = event.target;
+        // Collect user information from the form filled out by user
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        
+        // console.log(email, password, name, photo);
+        // console.log(event);
+
+        // Create new users
+        createUser(email, password)
+        .then(result=>{// If user creation is successful
+            const loggedUser = result.user;
+            console.log(loggedUser);
+             // When the user successfully logs in, set error state to '', to avoid showing any previous error messages
+             setError('');
+
+             // And show a success message
+             setSuccess('Successfully created an account.');
+
+            // Set display name and photo url for user
+            updateUserData(loggedUser, name, photo);
+            form.reset()
+        })
+        .catch(error =>{
+            setError(error.message);
+        })
+    }
+
+
+    // Add user display name and profile photo
+    const updateUserData = (user, name, photo) =>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+        .then()
+        .catch(error=> setError(error.message))
     }
     return (
         <div className='w-50 mx-auto p-5'>
@@ -24,6 +73,8 @@ const RegistrationLayout = () => {
 
 
             </form>
+            <p className='text-danger'>{error}</p>
+            <p className='text-success'>{success}</p>
             <Link to='/login' className='text-secondary'><p>Already have an account?Log In</p></Link>
             <br/>
             <Link to='/' className='text-secondary'>Return to home</Link>
