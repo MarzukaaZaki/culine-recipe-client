@@ -5,7 +5,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginLayout = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const handleLogIn = event => {
@@ -35,7 +35,7 @@ const LoginLayout = () => {
         googleSignIn()
         .then(result =>{
             const user = result.user;
-            setSuccess('You are logged in with google');
+            setSuccess('You are Logged In with Google');
             setError('');
         })
         .catch(error => setError(error.message))
@@ -44,6 +44,13 @@ const LoginLayout = () => {
 
     // Handle github login
     const handleGithubLogIn = () =>{
+        githubSignIn()
+        .then(result =>{
+            const user = result.user;
+            setSuccess('You are Logged In with Github!');
+            setError('')})
+        .catch(error => setError(error.message))
+            
 
     }
     return (

@@ -58,7 +58,8 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         logOut,
-        googleSignIn}; 
+        googleSignIn,
+        githubSignIn}; 
     return (
         <div>
             {/* Create a context provider */}
