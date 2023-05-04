@@ -12,8 +12,8 @@ const LoginLayout = () => {
         event.preventDefault();
 
         setSuccess('');
-
         const form = event.target;
+        
         const email = form.email.value;
         const password = form.password.value;
         // console.log(email, password);
@@ -22,6 +22,7 @@ const LoginLayout = () => {
                 const loggedUser = result.user;
                 setSuccess('You are Logged In.');
                 setError('');
+                form.reset();
             })
             .catch(error => {
                 setError(error.message);
@@ -31,12 +32,14 @@ const LoginLayout = () => {
 
     // Handle google Log In event
     const handleGoogleLogIn = () =>{
+        
         setSuccess('');
         googleSignIn()
         .then(result =>{
             const user = result.user;
             setSuccess('You are Logged In with Google');
             setError('');
+            
         })
         .catch(error => setError(error.message))
     }
@@ -44,11 +47,16 @@ const LoginLayout = () => {
 
     // Handle github login
     const handleGithubLogIn = () =>{
+        
+        setSuccess('');
         githubSignIn()
         .then(result =>{
             const user = result.user;
             setSuccess('You are Logged In with Github!');
-            setError('')})
+            setError('');
+            
+        })
+            
         .catch(error => setError(error.message))
             
 
