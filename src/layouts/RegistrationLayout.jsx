@@ -23,7 +23,7 @@ const RegistrationLayout = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         
-        // console.log(email, password, name, photo);
+        console.log(email, password, name, photo);
         // console.log(event);
 
         // Create new users

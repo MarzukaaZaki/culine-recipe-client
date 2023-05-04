@@ -1,12 +1,22 @@
-import React from 'react';
-import { Button, Container } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Container, Image } from 'react-bootstrap';
 import logo from '../../../assets/logo.png'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './Header.css'
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error.message))
+    }
+
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -19,17 +29,34 @@ const Header = () => {
                             <Link className="me-5 text-dark" to='/'>About</Link>
                             <Link className="me-5 text-dark" to='/'>Blog</Link>
                         </Nav>
-                        <Nav className="mx-auto">
-                            <Link to='/login' className="me-5 text-dark">Log In</Link>
-                            <Link className='text-dark' to='/registration'>
-                            Register
-                            </Link>
+                        <Nav>
+                            {
+                                user ?
+                                    <div>
+                                        <div className="profile-photo-container text-center d-flex">
+                                        <Image src={user.photoURL} fluid={true} roundedCircle className="profile-photo w-6 h-6 mx-3" />
+                                        Hello,<p className='text-secondary m-3'>{user.displayName}</p>
+                                            <Link onClick={handleLogOut} className='text-dark' to='/'>
+                                            Log Out
+                                        </Link>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    :
+                                    <div>
+                                        <Link to='/login' className="me-5 text-dark">Log In</Link>
+                                        <Link className='text-dark' to='/registration'>
+                                            Register
+                                        </Link>
+                                    </div>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
         </div>
     );
-};
 
+};
 export default Header;

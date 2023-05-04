@@ -1,3 +1,15 @@
 a{
     color: black
 }
+.profile-photo-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-left: 20px;
+  }
