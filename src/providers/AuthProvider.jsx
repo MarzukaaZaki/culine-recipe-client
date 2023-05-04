@@ -13,6 +13,9 @@ const AuthProvider = ({children}) => {
     // Set a state to track if there is a user
     const [user, setUser] = useState(null);
 
+    // Set a state to show loading condition
+    const [loading, setLoading] = useState(true);
+
     // Creation of user
     const createUser =(email, password) =>{
         return createUserWithEmailAndPassword(auth, email, password);
@@ -58,6 +61,7 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         logOut,
+        setLoading,
         googleSignIn,
         githubSignIn}; 
     return (
