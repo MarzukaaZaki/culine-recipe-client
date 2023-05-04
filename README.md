@@ -31,7 +31,7 @@ The user can register into and log in and out from the site.
 
 # Resources and Packages used
 - [React Router](https://reactrouter.com/en)
-- [Firebase]()
+- [Firebase](https://firebase.google.com)
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [React Icons](https://react-icons.github.io/)
 - [ExpressJS](https://expressjs.com/)

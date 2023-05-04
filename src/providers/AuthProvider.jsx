@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 // Initialize the authentication service from firebase
@@ -28,6 +28,19 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    // Google Sign-In
+    // Create a google auth provider
+    const googleAuthProvider = new GoogleAuthProvider();
+    const googleSignIn = () =>{
+        return signInWithPopup(auth, googleAuthProvider);
+    }
+
+    // Github Sign-In
+    // Create a github provider
+    const githubAuthProvider = new GithubAuthProvider();
+    const githubSignIn = () => {
+        return signInWithPopup(auth, githubAuthProvider);
+    }
     useEffect( ()=>{
         // Setting an observer on the auth object
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
@@ -44,7 +57,8 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signIn,
-        logOut}; 
+        logOut,
+        googleSignIn}; 
     return (
         <div>
             {/* Create a context provider */}

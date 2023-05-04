@@ -69,15 +69,15 @@ const RegistrationLayout = () => {
                 <input className='w-100 mb-4 rounded p-2 border'  type="url" name="photo" id="photo" placeholder='Your Photo' required />
                 <br />
 
-                <input className='btn btn-dark text-center' type="submit" value="Register" />
+                <input className='btn btn-dark text-center w-100 py-2' type="submit" value="Register" />
 
 
             </form>
             <p className='text-danger'>{error}</p>
             <p className='text-success'>{success}</p>
-            <Link to='/login' className='text-secondary'><p>Already have an account?Log In</p></Link>
+            <Link to='/login' className='text-secondary'>Already have an account?Log In</Link>
             <br/>
-            <Link to='/' className='text-secondary'>Return to home</Link>
+            <Link to='/' className='text-dark'><small> Return to home</small></Link>
         </div>
     );
 };
