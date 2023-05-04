@@ -6,6 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -34,14 +36,19 @@ const Header = () => {
                                 user ?
                                     <div>
                                         <div className="profile-photo-container text-center d-flex">
-                                        <Image src={user.photoURL} fluid={true} roundedCircle className="profile-photo w-6 h-6 mx-3" />
-                                        Hello,<p className='text-secondary m-3'>{user.displayName}</p>
+                                            <OverlayTrigger
+                                                placement="bottom"
+                                                overlay={<Tooltip>{user.displayName}</Tooltip>}
+                                            >
+                                                <Image src={user.photoURL} fluid={true} roundedCircle className="profile-photo w-6 h-6 mx-3" />
+                                            </OverlayTrigger>
+                                            Hello,<p className='text-secondary m-3'>{user.displayName}</p>
                                             <Link onClick={handleLogOut} className='text-dark' to='/'>
-                                            Log Out
-                                        </Link>
-                                            
+                                                Log Out
+                                            </Link>
+
                                         </div>
-                                        
+
                                     </div>
                                     :
                                     <div>
