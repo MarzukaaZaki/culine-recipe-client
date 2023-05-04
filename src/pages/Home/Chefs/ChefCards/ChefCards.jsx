@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
 import { Col, Row } from 'react-bootstrap';
 
 const ChefCards = () => {
-    const [chefs, setChefs] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/chefs')
-            .then(res => res.json())
-            .then(data => setChefs(data))
-            .catch(error => console.log(error.message))
-    })
+    const chefs = useLoaderData();
     return (
         <div className='text-center'>
             <h2 className='my-5'>Meet Our Chefs</h2>

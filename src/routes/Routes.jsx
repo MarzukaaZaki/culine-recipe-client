@@ -15,7 +15,8 @@ import RegistrationLayout from "../layouts/RegistrationLayout";
         children:[
             {
                 path: '/',
-                element: <HomeLayout></HomeLayout>
+                element: <HomeLayout></HomeLayout>,
+                loader:() => fetch('https://culine-food-recipe-server.vercel.app/chefs')
             },
           {
             path:'*',
