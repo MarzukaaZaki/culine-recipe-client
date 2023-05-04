@@ -29,7 +29,7 @@ const Header = () => {
                         <Nav className="mx-auto">
                             <Link className="me-5 text-dark" to='/'>Home</Link>
                             <Link className="me-5 text-dark" to='/'>About</Link>
-                            <Link className="me-5 text-dark" to='/'>Blog</Link>
+                            <Link className="me-5 text-dark" to='/blog'>Blog</Link>
                         </Nav>
                         <Nav>
                             {
