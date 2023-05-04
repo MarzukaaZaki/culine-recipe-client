@@ -6,22 +6,17 @@ const LoginLayout = () => {
     return (
 
         <div className='w-25 mx-auto'>
-            <h1 className='mt-5'>Log In</h1>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+            <h1 className='mt-5 text-center mb-3'>Log In</h1>
+            <Form className='text-center' >
+                <Form.Group className="mb-5" controlId="formBasicEmail">
                     <Form.Control type="email" name="email" placeholder="Enter email" required />
 
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                <Form.Group className="mb-5" controlId="formBasicPassword">
 
                     <Form.Control name="password" placeholder="Password" required />
 
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Remember me" />
                 </Form.Group>
                 <Button variant="dark" type="submit">
                     Log In
