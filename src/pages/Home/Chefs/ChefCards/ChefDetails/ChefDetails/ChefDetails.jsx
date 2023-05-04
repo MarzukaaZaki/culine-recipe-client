@@ -59,7 +59,7 @@ const ChefDetails = () => {
                             </Col>
                         </Row>
 
-                        <div className='text-center mt-2'>
+                        <div className='text-center'>
                             <hr />
                             <h1 className='mb-2'>Recipes</h1>
                             <hr />

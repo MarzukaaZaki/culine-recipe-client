@@ -7,6 +7,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import LoginLayout from "../layouts/LoginLayout";
 import RegistrationLayout from "../layouts/RegistrationLayout";
 import ChefDetails from "../pages/Home/Chefs/ChefCards/ChefDetails/ChefDetails/ChefDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/chef/:id',
-        element: <ChefDetails></ChefDetails>,
+        element: <PrivateRoutes><ChefDetails></ChefDetails></PrivateRoutes>,
         loader: () => fetch('https://culine-food-recipe-server.vercel.app/chefs')
       },
       {

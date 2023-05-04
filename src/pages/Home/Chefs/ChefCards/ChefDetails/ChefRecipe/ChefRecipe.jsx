@@ -4,10 +4,11 @@ import { FaStar } from "react-icons/fa";
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import toast, { Toaster } from 'react-hot-toast';
+import { Image } from 'react-bootstrap';
 
 
 const ChefRecipe = ({ recipe }) => {
-    const { recipe_name, ingredients, cooking_method, rating } = recipe;
+    const { recipe_name, recipe_img, ingredients, cooking_method, rating } = recipe;
     // Disable Button
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -23,6 +24,7 @@ const ChefRecipe = ({ recipe }) => {
                 <Card.Header>{recipe_name}</Card.Header>
                 <Card.Body>
                     <Card.Title>Ingredients</Card.Title>
+                    <Image src={recipe_img} fluid/>
                     <Card.Text>
                         {ingredients}
                     </Card.Text>
