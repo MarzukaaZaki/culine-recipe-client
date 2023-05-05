@@ -3,7 +3,7 @@ import { Button, Container, Image } from 'react-bootstrap';
 import logo from '../../../assets/logo.png'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../../../providers/AuthProvider';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
@@ -27,9 +27,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Link className="me-5 text-dark" to='/'>Home</Link>
-                            <Link className="me-5 text-dark" to='/'>About</Link>
-                            <Link className="me-5 text-dark" to='/blog'>Blog</Link>
+                            <NavLink className="me-5 text-dark" exact to='/'>Home</NavLink>
+                            <NavLink className="me-5 text-dark" to='/'>About</NavLink>
+                            <NavLink className="me-5 text-dark" to='/blog'>Blog</NavLink>
                         </Nav>
                         <Nav>
                             {
@@ -43,19 +43,19 @@ const Header = () => {
                                                 <Image src={user.photoURL} fluid={true} roundedCircle className="profile-photo w-6 h-6 mx-3" />
                                             </OverlayTrigger>
                                             Hello,<p className='text-secondary m-3'>{user.displayName}</p>
-                                            <Link onClick={handleLogOut} className='text-dark' to='/'>
+                                            <NavLink onClick={handleLogOut} className='text-dark' to='/'>
                                                 Log Out
-                                            </Link>
+                                            </NavLink>
 
                                         </div>
 
                                     </div>
                                     :
                                     <div>
-                                        <Link to='/login' className="me-5 text-dark">Log In</Link>
-                                        <Link className='text-dark' to='/registration'>
+                                        <NavLink to='/login' className="me-5 text-dark">Log In</NavLink>
+                                        <NavLink className='text-dark' to='/registration'>
                                             Register
-                                        </Link>
+                                        </NavLink>
                                     </div>
                             }
                         </Nav>

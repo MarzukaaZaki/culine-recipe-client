@@ -1,5 +1,10 @@
 a{
-    color: black
+    color: black;
+}
+a.active{
+    color:blueviolet;
+    font-weight: 700;
+    text-decoration: underline;
 }
 .profile-photo-container {
     display: flex;
