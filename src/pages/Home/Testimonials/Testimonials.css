@@ -1,0 +1,23 @@
+.photo-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.photo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 1em 0;
+    padding: 0 1em;
+    border-left: 3px solid #ccc;
+}
+
+.testimonial-card{
+    min-height: 430px;
+}

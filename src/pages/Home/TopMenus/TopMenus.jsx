@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import menu1 from '../../../assets/menu1.png'
 import menu2 from '../../../assets/menu2.png'
 import menu3 from '../../../assets/menu3.png'
+import './TopMenus.css'
 
 const TopMenus = () => {
     return (
@@ -15,9 +16,9 @@ const TopMenus = () => {
                         src={menu1}
                         alt="First slide"
                     />
-                    <Carousel.Caption className='text-black bg-transparent bg-white'>
+                    <Carousel.Caption className='background'>
                         
-                        <p style={{ fontWeight: 'bold' }}>Ravioli Noodles</p>
+                        <p>Ravioli Noodles</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
@@ -27,9 +28,9 @@ const TopMenus = () => {
                         src={menu2}
                         alt="Second slide"
                     />
-                    <Carousel.Caption className='text-black bg-transparent bg-white'>
+                    <Carousel.Caption className='background'>
             
-                        <p style={{ fontWeight: 'bold' }}>Colored Farfalle Salad</p>
+                        <p>Colored Farfalle Salad</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -38,9 +39,9 @@ const TopMenus = () => {
                         src={menu3}
                         alt="Third slide"
                     />
-                    <Carousel.Caption className='text-black bg-transparent bg-white'>
+                    <Carousel.Caption className='background'>
                       
-                        <p style={{ fontWeight: 'bold' }}>
+                        <p>
                         Tiramissu Dessert with Mint
                         </p>
                     </Carousel.Caption>
