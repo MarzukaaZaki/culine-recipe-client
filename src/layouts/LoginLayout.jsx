@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
@@ -8,6 +8,12 @@ const LoginLayout = () => {
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
+    const from = location.state?.from?.pathname || '/';
+
     const handleLogIn = event => {
         event.preventDefault();
 
@@ -23,10 +29,13 @@ const LoginLayout = () => {
                 setSuccess('You are Logged In.');
                 setError('');
                 form.reset();
+                navigate(from);
+                
             })
             .catch(error => {
                 setError(error.message);
             })
+           
 
     }
 
@@ -39,6 +48,7 @@ const LoginLayout = () => {
             const user = result.user;
             setSuccess('You are Logged In with Google');
             setError('');
+            navigate(from);
             
         })
         .catch(error => setError(error.message))
@@ -54,6 +64,7 @@ const LoginLayout = () => {
             const user = result.user;
             setSuccess('You are Logged In with Github!');
             setError('');
+            navigate(from)
             
         })
             
