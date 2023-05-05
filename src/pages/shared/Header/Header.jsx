@@ -26,9 +26,9 @@ const Header = () => {
                     <Navbar.Brand href="#home"><img src={logo} width={230} alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto">
+                        <Nav className="mx-auto" id="main-link">
                             <NavLink className="me-5 text-dark" exact to='/'>Home</NavLink>
-                            <NavLink className="me-5 text-dark" to='/'>About</NavLink>
+                            <NavLink className="me-5 text-dark" to='/about'>About</NavLink>
                             <NavLink className="me-5 text-dark" to='/blog'>Blog</NavLink>
                         </Nav>
                         <Nav>
@@ -42,7 +42,7 @@ const Header = () => {
                                             >
                                                 <Image src={user.photoURL} fluid={true} roundedCircle className="profile-photo w-6 h-6 mx-3" />
                                             </OverlayTrigger>
-                                            Hello,<p className='text-secondary m-3'>{user.displayName}</p>
+                                            Hello,<p className='text-secondary m-3'><strong>{user.displayName? user.displayName: 'User'}</strong> </p>
                                             <NavLink onClick={handleLogOut} className='text-dark' to='/'>
                                                 Log Out
                                             </NavLink>
@@ -52,10 +52,10 @@ const Header = () => {
                                     </div>
                                     :
                                     <div>
-                                        <NavLink to='/login' className="me-5 text-dark">Log In</NavLink>
-                                        <NavLink className='text-dark' to='/registration'>
+                                        <Link to='/login' className="me-5 text-dark">Log In</Link>
+                                        <Link className='text-dark' to='/registration'>
                                             Register
-                                        </NavLink>
+                                        </Link>
                                     </div>
                             }
                         </Nav>

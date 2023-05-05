@@ -1,8 +1,7 @@
 a{
     color: black;
 }
-a.active{
-    color:blueviolet;
+#main-link a.active{
     font-weight: 700;
     text-decoration: underline;
 }

@@ -17,8 +17,8 @@ const HomeBanner = () => {
                     />
                     <Carousel.Caption className="carousel-caption">
                         <Container>
-                            <h3 className="text-white">WELCOME TO CULINE</h3>
-                            <p className="text-white">We bring Italy to your table worldwide</p>
+                            <h3 className="text-white display-4"><strong>WELCOME TO CULINE</strong> </h3>
+                           
                             
                         </Container>
                     </Carousel.Caption>
@@ -31,7 +31,7 @@ const HomeBanner = () => {
                     />
                     <Carousel.Caption className="carousel-caption">
                         <Container>
-                            <h3 className="text-white">Discover the Art of Italian Cooking</h3>
+                            <h3 className="text-white display-5">Discover the Art of Italian Cooking</h3>
                            
                             
                         </Container>
@@ -45,7 +45,7 @@ const HomeBanner = () => {
                     />
                     <Carousel.Caption className="carousel-caption">
                         <Container>
-                            <h3 className="text-white">Authentic Italian Recipes</h3>
+                            <h3 className="text-white display-5">Authentic Italian Recipes</h3>
                             
                             
                         </Container>
